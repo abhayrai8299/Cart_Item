@@ -1,3 +1,7 @@
+*{
+  margin:0;
+  padding:0;
+}
 .App {
   text-align: center;
 }
@@ -27,7 +31,136 @@
 .App-link {
   color: #61dafb;
 }
+.cart{
+  color: white;
+  text-decoration: none;
+}
 
+.navbar
+{
+  background-color:darkblue;
+  color: white;
+}
+.header{
+  display: flex;
+  padding: 15px;
+  justify-content: space-between;
+  margin-right: 55px;
+  cursor: pointer;
+}
+.dropdown {
+  min-width: 100px;
+}
+.dropdown-btn {
+  font-size: 16px;
+  border-radius: 4px;
+  height: 40px;
+  width: auto;
+  padding: 0 30px;
+  cursor: pointer;
+}
+
+
+.dropdown-items {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  width: 200px;
+  background-color: darkgrey;
+  position: absolute;
+  margin-top: 5px;
+  color: black;
+  left:1100px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border: 1px solid black;
+  padding: 8px 15px;
+  border-radius: 4px;
+}
+.dropdown-item {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  cursor: pointer;
+}
+.dropdown-item:not(first-child) {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.dropdown-item:not(last-child) {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.isVisible {
+  visibility: visible;
+}
+.isHidden {
+  visibility: hidden;
+}
+.card
+{
+  display: flex;
+}
+
+.image
+{
+  width:250px;
+}
+
+.price
+{
+  font-size:1rem;
+}
+.add_cart
+{
+  background-color: aqua;
+  border-radius: 2px;
+  border:1px solid #282c34;
+  cursor:pointer;
+  padding: 8px;
+}
+.add-remove
+{
+  background-color: yellow;
+  position: relative;
+  border: 1px solid black;
+  width: 48px;
+  padding: 3px;
+  left: 71px;
+}
+.inc
+{
+  font-size: 1.5rem;
+  font-weight: 800;
+  cursor: pointer;;
+}
+.dec
+{
+  font-size: 1.5rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.num
+{
+  font-size: 1.5rem;
+}
+.contain
+{
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.heading
+{
+  font-size: 1.2rem;
+}
+
+.images
+{width:230px;
+  border: 1px solid;
+  border-radius: 22px;
+  height: 200px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
