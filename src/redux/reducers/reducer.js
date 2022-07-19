@@ -46,6 +46,7 @@ const initialState = {
         qnty: 1,
       },
     ],
+    qty:0,
   };
   
   export const cartreducer = (state = initialState, action) => {

@@ -5,37 +5,30 @@ import {
     REMOVE_FROM_CART,
     ADJUST_QNTY_ITEM,
   } from "../redux/actions/action";
+import Header from './Header';
+import ProductPrice from './ProductPrice';
 
 const CartItem = () => {
      const data=useSelector((state) => state.cartreducer.carts);
-    const [totalprice, setTotalprice] = useState(0);
-
+     console.log("dafdasfadsafsf",data);
+     const [qunatity,setquantity]=useState(0)
     const dispatch = useDispatch();
     const addHandler = (item) => {
+      setquantity(qunatity+1)
       dispatch(ADD_TO_CART(item));
     };
     const delHandler = (id) => {
+      setquantity(qunatity+1)
       dispatch(REMOVE_FROM_CART(id));
     };
   
     const removeHandler = (item) => {
+      setquantity(qunatity+1)
       dispatch(ADJUST_QNTY_ITEM(item));
     };
-  
-    const totalAmount = () => {
-      let price = 0;
-      data.map((item) => {
-        price = item.price * item.qnty + price;
-      });
-      setTotalprice(price);
-    };
-  
-    useEffect(() => {
-      totalAmount();
-    }, [totalAmount]);
-
   return (
     <>
+    <Header />
       {data.length > 0 ? (
         <div>
           {data.map((item) => {
@@ -73,26 +66,7 @@ const CartItem = () => {
               </div>
             );
           })}
-          <div>
-            <hr />
-            <span>SubTotal:</span>
-            <br />
-            {data.map((item) => {
-              return (
-                <>
-                  <span>{item.rname}:</span>
-                  <span>Rs.{item.price}</span>
-                  <span>*</span>
-                  <span>{item.qnty}</span>=
-                  <span>
-                    Rs.{item.price * item.qnty}
-                    <br></br>
-                  </span>
-                </>
-              );
-            })}
-            <br></br> <span>Grand Total:Rs.{totalprice}</span>
-          </div>
+         <ProductPrice data={data} qunatity={qunatity} />
         </div>
       ) : (
         "Cart is Empty"
