@@ -2,26 +2,24 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {
     ADD_TO_CART,
-    REMOVE_CART,
-    REMOVE_IND_ITEM,
+    REMOVE_FROM_CART,
+    ADJUST_QNTY_ITEM,
   } from "../redux/actions/action";
 
 const CartItem = () => {
      const data=useSelector((state) => state.cartreducer.carts);
-    console.log("dataaaaaa",data);
     const [totalprice, setTotalprice] = useState(0);
 
     const dispatch = useDispatch();
     const addHandler = (item) => {
-      console.log("item", item);
       dispatch(ADD_TO_CART(item));
     };
     const delHandler = (id) => {
-      dispatch(REMOVE_CART(id));
+      dispatch(REMOVE_FROM_CART(id));
     };
   
     const removeHandler = (item) => {
-      dispatch(REMOVE_IND_ITEM(item));
+      dispatch(ADJUST_QNTY_ITEM(item));
     };
   
     const totalAmount = () => {
@@ -79,15 +77,15 @@ const CartItem = () => {
             <hr />
             <span>SubTotal:</span>
             <br />
-            {data.map((data) => {
+            {data.map((item) => {
               return (
                 <>
-                  <span>{data.rname}:</span>
-                  <span>Rs.{data.price}</span>
+                  <span>{item.rname}:</span>
+                  <span>Rs.{item.price}</span>
                   <span>*</span>
-                  <span>{data.qnty}</span>=
+                  <span>{item.qnty}</span>=
                   <span>
-                    Rs.{data.price * data.qnty}
+                    Rs.{item.price * item.qnty}
                     <br></br>
                   </span>
                 </>

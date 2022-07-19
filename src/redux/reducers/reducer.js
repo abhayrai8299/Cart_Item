@@ -49,40 +49,28 @@ const initialState = {
   };
   
   export const cartreducer = (state = initialState, action) => {
-    // localStorage.setItem("Item",state.carts)
     switch (action.type) {
-      case "ADD_CART":
-        const itemIndex = state.carts.findIndex(
-          (item) => item.id === action.payload.id
-        );
-        if (itemIndex >= 0) {
-          state.carts[itemIndex].qnty += 1;
-        } else {
-          const temp = { ...action.payload, qnty: 1 };
-          return {
-            ...state,
-            carts: [...state.carts, temp],
-          };
+      case "ADD_TO_CART":
+        const item=state.carts.find((data)=>data.id===action.payload.id);
+        const checkState=state.carts.find((data)=>data.id===action.payload.id?true:false);
+        return {
+          ...state,
+          carts:checkState?state.carts.map((data)=>data.id===action.payload.id?{...data,qnty:data.qnty+1}:data):[...state.carts,{...item,qnty:1}]
         }
-      // eslint-disable-next-line no-fallthrough
-      case "REMOVE_CART":
+      case "REMOVE_FROM_CART":
         const data = state.carts.filter((el) => el.id !== action.payload);
         return {
           ...state,
           carts: data,
         };
-      case "REMOVE_IND":
-        const itemIndex_dec = state.carts.findIndex(
-          (item) => item.id === action.payload.id
-        );
-        if (state.carts[itemIndex_dec].qnty >= 1) {
-          state.carts[itemIndex_dec].qnty -= 1;
-          return {
-            ...state,
-            carts: [...state.carts],
-          };
+      case "ADJUST_QNTY_ITEM":
+        const items=state.carts.find((data)=>data.id===action.payload.id);
+        const checkStates=state.carts.find((data)=>data.id===action.payload.id?true:false);
+        return {
+          ...state,
+          carts:checkStates?state.carts.map((data)=>data.id===action.payload.id?{...data,qnty:data.qnty-1}:data):[...state.carts,{...items,qnty:1}]
         }
-      // eslint-disable-next-line no-fallthrough
+
       default:
         return state;
     }
