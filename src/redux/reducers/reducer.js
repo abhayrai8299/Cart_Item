@@ -49,6 +49,7 @@ const initialState = {
   };
   
   export const cartreducer = (state = initialState, action) => {
+    // localStorage.setItem("Item",state.carts)
     switch (action.type) {
       case "ADD_CART":
         const itemIndex = state.carts.findIndex(
@@ -63,13 +64,13 @@ const initialState = {
             carts: [...state.carts, temp],
           };
         }
+      // eslint-disable-next-line no-fallthrough
       case "REMOVE_CART":
         const data = state.carts.filter((el) => el.id !== action.payload);
         return {
           ...state,
           carts: data,
         };
-  
       case "REMOVE_IND":
         const itemIndex_dec = state.carts.findIndex(
           (item) => item.id === action.payload.id
@@ -81,6 +82,7 @@ const initialState = {
             carts: [...state.carts],
           };
         }
+      // eslint-disable-next-line no-fallthrough
       default:
         return state;
     }

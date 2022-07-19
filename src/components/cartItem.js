@@ -7,7 +7,7 @@ import {
   } from "../redux/actions/action";
 
 const CartItem = () => {
-    const data = useSelector((state) => state.cartreducer.carts);
+     const data=useSelector((state) => state.cartreducer.carts);
     console.log("dataaaaaa",data);
     const [totalprice, setTotalprice] = useState(0);
 
