@@ -52,11 +52,11 @@ const initialState = {
   export const cartreducer = (state = initialState, action) => {
     switch (action.type) {
       case "ADD_TO_CART":
-        const item=state.carts.find((data)=>data.id===action.payload.id);
+        // const item=state.carts.find((data)=>data.id===action.payload.id);
         const checkState=state.carts.find((data)=>data.id===action.payload.id?true:false);
         return {
           ...state,
-          carts:checkState?state.carts.map((data)=>data.id===action.payload.id?{...data,qnty:data.qnty+1}:data):[...state.carts,{...item,qnty:1}]
+          carts:checkState?state.carts.map((data)=>data.id===action.payload.id?{...data,qnty:data.qnty+1}:data):[...state.carts,{...action.payload,qnty:1}]
         }
       case "REMOVE_FROM_CART":
         const data = state.carts.filter((el) => el.id !== action.payload);
@@ -65,11 +65,11 @@ const initialState = {
           carts: data,
         };
       case "ADJUST_QNTY_ITEM":
-        const items=state.carts.find((data)=>data.id===action.payload.id);
+        // const items=state.carts.find((data)=>data.id===action.payload.id);
         const checkStates=state.carts.find((data)=>data.id===action.payload.id?true:false);
         return {
           ...state,
-          carts:checkStates?state.carts.map((data)=>data.id===action.payload.id?{...data,qnty:data.qnty-1}:data):[...state.carts,{...items,qnty:1}]
+          carts:checkStates?state.carts.map((data)=>data.id===action.payload.id?{...data,qnty:data.qnty-1}:data):[...state.carts,{...action.payload,qnty:1}]
         }
 
       default:

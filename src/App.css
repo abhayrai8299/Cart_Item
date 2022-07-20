@@ -118,6 +118,11 @@
   cursor:pointer;
   padding: 8px;
 }
+.add-removes
+{
+  position: relative;
+  padding: 3px;
+}
 .add-remove
 {
   background-color: yellow;
@@ -153,6 +158,10 @@
 .heading
 {
   font-size: 1.2rem;
+}
+.product
+{
+  margin-top: 70px;
 }
 
 .images
