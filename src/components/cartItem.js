@@ -44,7 +44,7 @@ const CartItem = () => {
               <div className="cards">
                 <span className="heading">{item.rname}</span>
                 <br></br>
-                <img className="images" src={item.imgdata} alt="image" />
+                <img aria-hidden className="images" src={item.imgdata} alt="image" />
                 <br></br>
                 <span className="prices">Price :Rs.{item.price}</span>
                 <br></br>

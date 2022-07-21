@@ -52,7 +52,7 @@ const SingleProduct = ({ prod }) => {
       <div className="card">
         <div className="main">
           <h6>{prod.rname}</h6>
-          <img className="image" src={prod.imgdata} alt="image" />
+          <img aria-hidden className="image" src={prod.imgdata} alt="image" />
           <br></br>
           <span className="price">Price :Rs.{prod.price}</span>
           <br></br>
