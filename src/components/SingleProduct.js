@@ -10,9 +10,7 @@ import Cardsdata from "./CardData";
 
 const SingleProduct = ({ prod }) => {
 
-  console.log("dad",prod)
   const cartitem = useSelector((state) => state.cartreducer.carts);
-  // const [items,setItems]=useState("")
   const dispatch = useDispatch();
 
   const addnadjustHandler=(item)=>{
@@ -27,7 +25,6 @@ const SingleProduct = ({ prod }) => {
   }
 
   const addHandler = (item) => {
-    //  setItems(Cardsdata.find((data)=>data.id===item.id));
     Cardsdata.map((item)=>{
         if(item.id===prod.id)
         {
@@ -42,7 +39,6 @@ const SingleProduct = ({ prod }) => {
     dispatch(REMOVE_FROM_CART(id));
   };
   const adjustQntyHandler = (item) => {
-    // setItems(Cardsdata.find((data)=>data.id===item.id));
     Cardsdata.map((item)=>{
         if(item.id===prod.id)
         {

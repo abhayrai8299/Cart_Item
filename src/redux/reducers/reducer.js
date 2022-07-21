@@ -52,7 +52,6 @@ const initialState = {
   export const cartreducer = (state = initialState, action) => {
     switch (action.type) {
       case "ADD_TO_CART":
-        // const item=state.carts.find((data)=>data.id===action.payload.id);
         const checkState=state.carts.find((data)=>data.id===action.payload.id?true:false);
         return {
           ...state,
@@ -65,7 +64,6 @@ const initialState = {
           carts: data,
         };
       case "ADJUST_QNTY_ITEM":
-        // const items=state.carts.find((data)=>data.id===action.payload.id);
         const checkStates=state.carts.find((data)=>data.id===action.payload.id?true:false);
         return {
           ...state,

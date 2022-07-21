@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from 'react'
 
-const ProductPrice = ({data,qunatity}) => {
+const ProductPrice = ({data,quantity}) => {
     const [totalprice, setTotalprice] = useState(0);
-
 
     const totalAmount = () => {
         let price = 0;
@@ -11,11 +10,10 @@ const ProductPrice = ({data,qunatity}) => {
         });
         setTotalprice(price);
       };
-    
       useEffect(() => {
         totalAmount();
      
-      }, [qunatity]);
+      }, [quantity]);
   return (
     <div>
     <hr />

@@ -10,31 +10,29 @@ import ProductPrice from "./ProductPrice";
 
 const CartItem = () => {
   const data = useSelector((state) => state.cartreducer.carts);
-  const [qunatity, setquantity] = useState(0);
+  const [quantity, setquantity] = useState(0);
   const dispatch = useDispatch();
   const addHandler = (item) => {
-    Cardsdata.map((data)=>{
-      if(data.id===item.id)
-      {
-        data.qnty=data.qnty+1
+    Cardsdata.map((data) => {
+      if (data.id === item.id) {
+        data.qnty = data.qnty + 1;
       }
-    })
-    setquantity(qunatity + 1);
+    });
+    setquantity(quantity + 1);
     dispatch(ADD_TO_CART(item));
   };
   const delHandler = (id) => {
-    setquantity(qunatity + 1);
+    setquantity(quantity + 1);
     dispatch(REMOVE_FROM_CART(id));
   };
 
   const removeHandler = (item) => {
-    Cardsdata.map((data)=>{
-      if(data.id===item.id)
-      {
-        data.qnty=data.qnty-1
+    Cardsdata.map((data) => {
+      if (data.id === item.id) {
+        data.qnty = data.qnty - 1;
       }
-    })
-    setquantity(qunatity + 1);
+    });
+    setquantity(quantity + 1);
     dispatch(ADJUST_QNTY_ITEM(item));
   };
   return (
@@ -76,7 +74,7 @@ const CartItem = () => {
               </div>
             );
           })}
-          <ProductPrice data={data} qunatity={qunatity} />
+          <ProductPrice data={data} quantity={quantity} />
         </div>
       ) : (
         "Cart is Empty"
