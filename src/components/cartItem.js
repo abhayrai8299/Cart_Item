@@ -38,10 +38,12 @@ const CartItem = () => {
   return (
     <>
       {data.length > 0 ? (
-        <div>
+        <>
+        <div className="card">
           {data.map((item) => {
             return (
-              <div className="cards">
+             
+              <div className="card-item">
                 <span className="heading">{item.rname}</span>
                 <br></br>
                 <img aria-hidden className="images" src={item.imgdata} alt="image" />
@@ -71,11 +73,12 @@ const CartItem = () => {
                   Rs.{item.price * item.qnty}
                   <br></br>
                 </span>
-              </div>
+                </div>
             );
           })}
+          </div>
           <ProductPrice data={data} quantity={quantity} />
-        </div>
+        </>
       ) : (
         "Cart is Empty"
       )}

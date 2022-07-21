@@ -3,6 +3,7 @@ import { Badge } from "react-bootstrap";
 import { TbShoppingCart } from "react-icons/tb";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import {FcShop} from "react-icons/fc"
 
 const Header = () => {
   const data = useSelector((state) => state.cartreducer.carts);
@@ -11,6 +12,7 @@ const Header = () => {
       <div className="container">
         <div className="header">
           <div>
+            <FcShop />
             <span>Foody Food</span>
           </div>
           <NavLink className="cart" to="/cart">

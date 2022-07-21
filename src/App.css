@@ -38,16 +38,18 @@
 
 .navbar
 {
-  background-color:darkblue;
+  background-color:#CA955C;
   color: white;
 }
 .header{
   display: flex;
+  font-size: 1.2rem;
   padding: 15px;
   justify-content: space-between;
   margin-right: 55px;
   cursor: pointer;
 }
+
 .dropdown {
   min-width: 100px;
 }
@@ -98,41 +100,62 @@
 }
 .price
 {
-  font-size:1rem;
+  font-size:1.3rem;
 }
 .add_cart
 {
-  background-color: aqua;
-  border-radius: 2px;
-  border:1px solid #282c34;
-  cursor:pointer;
-  padding: 8px;
+  background-color: #FEFBF6;
+  border-radius: 6rem;
+  border: 2px solid #282c34;
+  cursor: pointer;
+  padding: 13px;
+  font-weight: 900;
+  box-shadow: 0px 0px 5px rgb(0 0 0 / 50%);
+}
+.btn
+{
+  text-align: center;
+  padding-top: 10px;
 }
 .add-removes
 {
-  position: relative;
-  padding: 3px;
+  background-color: #FEFBF6;
+  border-radius: 6rem;
+  border: 2px solid #282c34;
+  cursor: pointer;
+  padding: 8px;
+  font-weight: 900;
+  box-shadow: 0px 0px 5px rgb(0 0 0 / 50%);
 }
 .add-remove
 {
-  background-color: yellow;
-  position: relative;
-  border: 1px solid black;
-  width: 48px;
-  padding: 3px;
-  left: 71px;
+  background-color: #FEFBF6;
+  border-radius: 6rem;
+  border: 2px solid #282c34;
+  cursor: pointer;
+  padding: 8px;
+  font-weight: 900;
+  box-shadow: 0px 0px 5px rgb(0 0 0 / 50%);
+}
+.button
+{
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
 }
 .inc
 {
   font-size: 1.5rem;
   font-weight: 800;
-  cursor: pointer;;
+  cursor: pointer;
+  padding: 10px;
 }
 .dec
 {
   font-size: 1.5rem;
   font-weight: 800;
   cursor: pointer;
+  padding: 10px;
 }
 
 .num
@@ -142,19 +165,37 @@
 
 .heading
 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 300;
+  text-align: center;
 }
 .product
 {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   margin-top: 70px;
 }
+.card
+{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+}
+.card-item
+{
+  background-color: #B2A4FF;
+  text-align: center;
+  flex-basis: 17%;
+  margin: 1rem 0;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgb(0 0 0 / 20%);
+}
 .product-card
 {
-  background-color: #fff;
+  background-color: #FCF8E8;
   flex-basis: 20%;
   margin: 1rem 0;
   padding: 15px;
@@ -181,6 +222,35 @@
   border-radius: 22px;
   height: 200px;
 }
+.sub-total
+{
+  font-size: 1.5rem;
+    font-weight: 900;
+}
+.item-name
+{
+  font-size: 1.2rem;
+}
+.item-price{
+  font-size: 1.2rem;
+}
+.multi
+{
+  font-size: 1.5rem;
+}
+.qnty{
+  font-size: 1.2rem;
+}
+.multiply
+{
+  font-size:1.2rem;
+}
+.grand-total{
+  font-size:1.8rem;
+}
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

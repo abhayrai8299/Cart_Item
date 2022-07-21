@@ -55,8 +55,8 @@ const SingleProduct = ({ prod }) => {
           <span className="price">Price :Rs.{prod.price}</span>
           <br></br>
           {cartitem.some((p) => p.id === prod.id) ? (
-            <button className="add_removes">
-              <div className="add-removes">
+            <div className="button">
+            <button className="add-removes">
                 <span
                   className="dec"
                   onClick={
@@ -71,12 +71,14 @@ const SingleProduct = ({ prod }) => {
                 <span className="inc" onClick={() => addnadjustHandler(prod)}>
                   +
                 </span>
-              </div>
             </button>
+            </div>
           ) : (
+            <div className="btn">
             <button className="add_cart" onClick={() => addHandler(prod)}>
               Add to Cart
             </button>
+            </div>
           )}
           <br></br>
           </div>

@@ -18,23 +18,23 @@ const ProductPrice = ({data,quantity}) => {
   return (
     <div>
     <hr />
-    <span>SubTotal:</span>
+    <span className='sub-total'>SubTotal:</span>
     <br />
     {data.map((item) => {
       return (
-        <>
-          <span>{item.rname}:</span>
-          <span>Rs.{item.price}</span>
-          <span>*</span>
-          <span>{item.qnty}</span>=
-          <span>
+        <div>
+          <span className='item-name'>-{item.rname}:</span>
+          <span className='item-price'>Rs.{item.price}</span>
+          <span className='multi'>*</span>
+          <span className='qnty'>{item.qnty}</span>=
+          <span className='multiply'>
             Rs.{item.price * item.qnty}
             <br></br>
           </span>
-        </>
+        </div>
       );
     })}
-    <br></br> <span>Grand Total:Rs.{totalprice}</span>
+    <br></br> <span className='grand-total'>Grand Total:Rs.{totalprice}</span>
   </div>
   )
 }
