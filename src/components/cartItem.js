@@ -1,17 +1,25 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Cardsdata from "./CardData";
+import Modal from 'react-bootstrap/Modal';
 import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   ADJUST_QNTY_ITEM,
 } from "../redux/actions/action";
 import ProductPrice from "./ProductPrice";
+import { Button } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 const CartItem = () => {
+
+  const [show, setShow] = useState(false);
   const data = useSelector((state) => state.cartreducer.carts);
   const [quantity, setquantity] = useState(0);
   const dispatch = useDispatch();
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const addHandler = (item) => {
     Cardsdata.map((data) => {
       if (data.id === item.id) {
@@ -37,7 +45,7 @@ const CartItem = () => {
   };
   return (
     <>
-      {data.length > 0 ? (
+      {data.length >0 ? (
         <>
         <div className="card">
           {data.map((item) => {
@@ -80,7 +88,14 @@ const CartItem = () => {
           <ProductPrice data={data} quantity={quantity} />
         </>
       ) : (
-        "Cart is Empty"
+        <>
+        <div className="cart-empty">
+        <h3>Cart Is Empty</h3>
+        <button>
+        <NavLink className="cart-link" to="/">See New Things</NavLink>
+        </button>
+    </div>
+    </>
       )}
     </>
   );

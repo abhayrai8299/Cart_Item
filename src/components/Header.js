@@ -13,7 +13,7 @@ const Header = () => {
         <div className="header">
           <div>
             <FcShop />
-            <span>Foody Food</span>
+            <NavLink className="cart" to="/">Foody Food</NavLink>
           </div>
           <NavLink className="cart" to="/cart">
             <TbShoppingCart />
