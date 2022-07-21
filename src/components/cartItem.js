@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Cardsdata from "./CardData";
 import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
@@ -9,10 +10,15 @@ import ProductPrice from "./ProductPrice";
 
 const CartItem = () => {
   const data = useSelector((state) => state.cartreducer.carts);
-  console.log("dafdasfadsafsf", data);
   const [qunatity, setquantity] = useState(0);
   const dispatch = useDispatch();
   const addHandler = (item) => {
+    Cardsdata.map((data)=>{
+      if(data.id===item.id)
+      {
+        data.qnty=data.qnty+1
+      }
+    })
     setquantity(qunatity + 1);
     dispatch(ADD_TO_CART(item));
   };
@@ -22,6 +28,12 @@ const CartItem = () => {
   };
 
   const removeHandler = (item) => {
+    Cardsdata.map((data)=>{
+      if(data.id===item.id)
+      {
+        data.qnty=data.qnty-1
+      }
+    })
     setquantity(qunatity + 1);
     dispatch(ADJUST_QNTY_ITEM(item));
   };

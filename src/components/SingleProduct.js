@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import React from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import {
   ADD_TO_CART,
@@ -10,30 +10,44 @@ import Cardsdata from "./CardData";
 
 const SingleProduct = ({ prod }) => {
 
+  console.log("dad",prod)
   const cartitem = useSelector((state) => state.cartreducer.carts);
-  const [items,setItems]=useState("")
+  // const [items,setItems]=useState("")
   const dispatch = useDispatch();
 
-
-
-  
-  const addHandler = (item) => {
-     setItems(Cardsdata.find((data)=>data.id===item.id));
+  const addnadjustHandler=(item)=>{
     Cardsdata.map((item)=>{
-        item.id===items.id?
-        (item.qnty=item.qnty+1):(item.qnty=1)
+      if(item.id===prod.id)
+      {
+        prod.qnty=prod.qnty+1
+      }
+      
+    })
+  dispatch(ADD_TO_CART(item));
+  }
+
+  const addHandler = (item) => {
+    //  setItems(Cardsdata.find((data)=>data.id===item.id));
+    Cardsdata.map((item)=>{
+        if(item.id===prod.id)
+        {
+          prod.qnty=1
+        }
+        
       })
     dispatch(ADD_TO_CART(item));
   };
 
-  const delHandler = (id) => {
+  const removefromcartHandler = (id) => {
     dispatch(REMOVE_FROM_CART(id));
   };
-  const removeHandler = (item) => {
-    setItems(Cardsdata.find((data)=>data.id===item.id));
+  const adjustQntyHandler = (item) => {
+    // setItems(Cardsdata.find((data)=>data.id===item.id));
     Cardsdata.map((item)=>{
-        item.id===items.id?
-        (item.qnty=item.qnty-1):(item.qnty=1)
+        if(item.id===prod.id)
+        {
+        prod.qnty=prod.qnty-1;
+        }
       })
     dispatch(ADJUST_QNTY_ITEM(item));
   };
@@ -47,23 +61,23 @@ const SingleProduct = ({ prod }) => {
           <span className="price">Price :Rs.{prod.price}</span>
           <br></br>
           {cartitem.some((p) => p.id === prod.id) ? (
-            <button className="add_cart" onClick={() => delHandler(prod)}>
+            <button className="add_removes">
               <div className="add-removes">
                 <span
                   className="dec"
                   onClick={
                     prod.qnty <= 1
-                      ? () => delHandler(prod.id)
-                      : () => removeHandler(prod)
+                      ? () => removefromcartHandler(prod.id)
+                      : () => adjustQntyHandler(prod)
                   }
                 >
                   -
                 </span>
                 <span className="num">{prod.qnty}</span>
-                <span className="inc" onClick={() => addHandler(prod)}>
+                <span className="inc" onClick={() => addnadjustHandler(prod)}>
                   +
                 </span>
-              </div>{" "}
+              </div>
             </button>
           ) : (
             <button className="add_cart" onClick={() => addHandler(prod)}>
