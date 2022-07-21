@@ -6,10 +6,11 @@ const ProductPrice = ({data,quantity}) => {
     const totalAmount = () => {
         let price = 0;
         data.map((item) => {
-          price = item.price * item.qnty + price;
+           price = item.price * item.qnty + price;
         });
         setTotalprice(price);
       };
+
       useEffect(() => {
         totalAmount();
      

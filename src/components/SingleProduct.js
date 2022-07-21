@@ -48,11 +48,9 @@ const SingleProduct = ({ prod }) => {
     dispatch(ADJUST_QNTY_ITEM(item));
   };
   return (
-    <>
-      <div className="card">
-        <div className="main">
-          <h6>{prod.rname}</h6>
-          <img aria-hidden className="image" src={prod.imgdata} alt="image" />
+      <div className="product-card">
+          <h6 className="heading">{prod.rname}</h6>
+          <img aria-hidden className="product-image" src={prod.imgdata} alt="image" />
           <br></br>
           <span className="price">Price :Rs.{prod.price}</span>
           <br></br>
@@ -81,9 +79,7 @@ const SingleProduct = ({ prod }) => {
             </button>
           )}
           <br></br>
-        </div>
-      </div>
-    </>
+          </div>
   );
 };
 
