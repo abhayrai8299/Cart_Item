@@ -61,7 +61,7 @@ const SingleProduct = ({ prod }) => {
       <br></br>
       <span className="price">Price :Rs.{prod.price}</span>
       <br></br>
-      {cartitem.some((p) => p.id === prod.id) ? (
+      {cartitem.some((p) => p.id === prod.id) && prod.qnty!==0 ? (
         <div className="button">
           <button className="add-removes">
             <span
@@ -70,7 +70,7 @@ const SingleProduct = ({ prod }) => {
                 prod.qnty <= 1
                   ? () => removefromcartHandler(prod.id)
                   : () => adjustQntyHandler(prod)
-              }
+            }
             >
               -
             </span>

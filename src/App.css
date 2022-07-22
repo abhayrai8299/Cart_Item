@@ -193,7 +193,6 @@
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  margin-top: 70px;
 }
 .card
 {
@@ -204,7 +203,7 @@
 }
 .card-item
 {
-  background-color: #B2A4FF;
+  background-color: #FCF8E8;
   text-align: center;
   flex-basis: 17%;
   margin: 1rem 0;
