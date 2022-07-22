@@ -1,3 +1,9 @@
+export const Default_ADD_TO_CART = (item) => {
+  return {
+    type: "Default_ADD_TO_CART",
+    payload: item,
+  };
+};
 export const ADD_TO_CART = (item) => {
     return {
       type: "ADD_TO_CART",

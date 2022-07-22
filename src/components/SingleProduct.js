@@ -1,8 +1,6 @@
 import React from "react";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import { useDispatch, useSelector } from "react-redux";
 import {
   ADD_TO_CART,
@@ -36,6 +34,7 @@ const SingleProduct = ({ prod }) => {
   };
 
   const removefromcartHandler = (id) => {
+   
     const item=Cardsdata.find((data)=>data.id===id);
     toast(`${item.rname} Removed Successfully`);
     dispatch(REMOVE_FROM_CART(id));
@@ -61,7 +60,7 @@ const SingleProduct = ({ prod }) => {
       <br></br>
       <span className="price">Price :Rs.{prod.price}</span>
       <br></br>
-      {cartitem.some((p) => p.id === prod.id) && prod.qnty!==0 ? (
+      {cartitem.some((p) => p.id === prod.id) && prod.qnty>0 ? (
         <div className="button">
           <button className="add-removes">
             <span
@@ -80,13 +79,29 @@ const SingleProduct = ({ prod }) => {
             </span>
           </button>
         </div>
-      ) : (
-        <div className="btn">
+      ) : (prod.qnty>1?<div className="button">
+      <button className="add-removes">
+        <span
+          className="dec"
+          onClick={
+            prod.qnty <= 1
+              ? () => removefromcartHandler(prod.id)
+              : () => adjustQntyHandler(prod)
+        }
+        >
+          -
+        </span>
+        <span className="num">{prod.qnty}</span>
+        <span className="inc" onClick={() => addnadjustHandler(prod)}>
+          +
+        </span>
+      </button>
+    </div>:<div className="btn">
           <button className="add_cart" onClick={() => addHandler(prod)}>
             Add to Cart
           </button>
-        </div>
-      )}
+        </div> 
+)}
       <br></br>
       <ToastContainer
         position="top-center"

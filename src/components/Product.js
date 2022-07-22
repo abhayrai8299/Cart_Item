@@ -1,19 +1,26 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect} from 'react'
+import { useDispatch } from 'react-redux';
+import {Default_ADD_TO_CART } from '../redux/actions/action';
+import Cardsdata from './CardData';
 
 import CardData from './CardData';
 import SingleProduct from './SingleProduct';
 const Product = () => {
-//    const initialState=JSON.parse(localStorage.getItem("Cart"))|| []
-//    const [cartitems,setcartitems]=useState(initialState);
+  const dispatch=useDispatch();
 
-//    console.log(cartitems)
-//  useEffect(()=>{
-//      localStorage.setItem("Cart",JSON.stringify(CardData));
-// },[CardData]);
-
-
-//  console.log("fsfsfdfdfdfdfdfdff",initialState);
+  const Handler=()=>{
+    Cardsdata.map((item)=>{
+      if(item.qnty>0)
+      {
+        console.log(item);
+       dispatch(Default_ADD_TO_CART(item));
+      }
+    })
+  }
+  useEffect(()=>{
+    Handler();
+  },[Cardsdata])
+  
   return (
     <div className='product'>
      {CardData.map((prod) => (

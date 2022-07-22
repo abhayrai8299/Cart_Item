@@ -1,9 +1,11 @@
 import React from "react";
 import { Badge } from "react-bootstrap";
 import { TbShoppingCart } from "react-icons/tb";
-import { useSelector } from "react-redux";
+import {useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {FcShop} from "react-icons/fc"
+
+
 
 const Header = () => {
   const data = useSelector((state) => state.cartreducer.carts);
