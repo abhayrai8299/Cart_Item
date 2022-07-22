@@ -35,7 +35,7 @@ const SingleProduct = ({ prod }) => {
 
   const removefromcartHandler = (id) => {
    
-    const item=Cardsdata.find((data)=>data.id===id);
+    const item=cartitem.find((data)=>data.id===id);
     toast(`${item.rname} Removed Successfully`);
     dispatch(REMOVE_FROM_CART(id));
   };
