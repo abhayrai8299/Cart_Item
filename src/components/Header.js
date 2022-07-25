@@ -16,6 +16,7 @@ const Header = () => {
           <div>
             <FcShop />
             <NavLink className="cart" to="/">Foody Food</NavLink>
+            <NavLink className="cart order_page" to="/orderpage">Order History</NavLink>
           </div>
           <NavLink className="cart" to="/cart">
             <TbShoppingCart />

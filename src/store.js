@@ -22,7 +22,6 @@ import rootreducer from "./redux/reducers/main";
 //        return undefined;
 //      }
 //    }
-//rootereducer kae baad ,loadFromLocalStorage()
    const store = createStore(rootreducer);
-  //  store.subscribe(() => saveToLocalStorage(store.getState()));
+   // store.subscribe(() => saveToLocalStorage(store.getState()));
    export default store;

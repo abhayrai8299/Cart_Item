@@ -24,3 +24,10 @@ export const ADD_TO_CART = (item) => {
     };
   };
   
+  export const ADD_TO_ORDER = (item,price) => {
+    return {
+      type: "ADD_TO_ORDER",
+      payload:item,
+      price:price,
+    };
+  };
