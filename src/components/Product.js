@@ -12,7 +12,6 @@ const Product = () => {
     Cardsdata.map((item)=>{
       if(item.qnty>0)
       {
-        console.log(item);
        dispatch(Default_ADD_TO_CART(item));
       }
     })
