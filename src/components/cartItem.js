@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Cardsdata from "./CardData";
+import { ToastContainer,toast} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
@@ -16,6 +18,7 @@ const CartItem = () => {
   const [quantity, setquantity] = useState(0);
 
   const addHandler = (item) => {
+    toast(`${item.rname} Item Quantity Increased Successfully`);
     Cardsdata.map((data) => {
       if (data.id === item.id) {
         data.qnty = data.qnty + 1;
@@ -25,6 +28,8 @@ const CartItem = () => {
     dispatch(ADD_TO_CART(item));
   };
   const delHandler = (id) => {
+    const item = Cardsdata.find((data) => data.id === id);
+    toast(`${item.rname} Removed Successfully`);
     Cardsdata.map((data) => {
       if (data.id === id) {
         data.qnty = data.qnty - 1;
@@ -33,6 +38,7 @@ const CartItem = () => {
     dispatch(REMOVE_FROM_CART(id));
   };
   const removeHandler = (item) => {
+    toast(`${item.rname} Item Qunatity Decreased Successfully`);
     Cardsdata.map((data) => {
       if (data.id === item.id) {
         data.qnty = data.qnty - 1;
@@ -101,6 +107,17 @@ const CartItem = () => {
           </div>
         </>
       )}
+              <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   );
 };

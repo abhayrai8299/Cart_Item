@@ -35,7 +35,6 @@ const SingleProduct = ({ prod }) => {
   };
 
   const removefromcartHandler = (id) => {
-    cartitem.map((data) => (data.id !== id ? "dff" : "ssdd"));
     const item = cartitem.find((data) => data.id === id);
     toast(`${item.rname} Removed Successfully`);
     dispatch(REMOVE_FROM_CART(id));
