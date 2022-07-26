@@ -9,15 +9,16 @@ const OrderPage = () => {
     const reversed=(sortType==='desc')?-1:1;
     return reversed*a.orderDate.localeCompare(b.orderDate);
   });
+  console.log(sortedData.length);
   return (
     <div>
-      <h3 className="order_heading">My Orders</h3>
+      {sortedData.length?<> <h3 className="order_heading">My Orders</h3>
       {sortedData.map((item) => {
         let flag = false;
         return Object.keys(item).map((it) => {
           if (typeof item[it] === "object") {
             return (
-              <div className="prdouct-card">
+              <div>
                 <span className="item_heading">{item[it].rname}</span>
                 <br></br>
                 <img
@@ -26,7 +27,7 @@ const OrderPage = () => {
                   aria-hidden
                   alt="image"
                 />
-                <span>Quantity: {item[it].qnty}</span>
+                <span>Qty: {item[it].qnty}</span>
                 <span>*</span>
                 <span>Price: Rs.{item[it].price}</span>
                 <br></br>
@@ -47,7 +48,9 @@ const OrderPage = () => {
             );
           }
         });
-      })}
+      })}</>:<div className="order_heading"><span>No Order Yet</span></div>}
+     
+      
     </div>
   );
 };

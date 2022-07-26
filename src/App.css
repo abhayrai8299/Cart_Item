@@ -31,6 +31,29 @@
 .App-link {
   color: #61dafb;
 }
+.search_bar
+{
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  width: 200px;
+  height: 24px;
+}
+.header_item
+{
+  display: flex;
+}
+.input
+{
+  padding-left: 80px;
+}
+.search-icon
+{
+  padding-top: 29px;
+  position: relative;
+  top: 6px;
+}
+
 .cart{
   color: white;
   text-decoration: none;

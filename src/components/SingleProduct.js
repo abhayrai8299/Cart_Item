@@ -10,7 +10,8 @@ import {
 import Cardsdata from "./CardData";
 import { NavLink } from "react-router-dom";
 
-const SingleProduct = ({ prod }) => {
+const SingleProduct = ({ prod,search}) => {
+
   const cartitem = useSelector((state) => state.cartreducer.carts);
   const dispatch = useDispatch();
 
@@ -48,6 +49,7 @@ const SingleProduct = ({ prod }) => {
     });
     dispatch(ADJUST_QNTY_ITEM(item));
   };
+
   return (
     <div className="product-card">
       <h6 className="heading">{prod.rname}</h6>

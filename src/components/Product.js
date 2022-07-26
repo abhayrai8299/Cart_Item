@@ -1,15 +1,13 @@
 import React, { useEffect} from 'react'
 import { useDispatch } from 'react-redux';
 import {Default_ADD_TO_CART } from '../redux/actions/action';
-import Cardsdata from './CardData';
-
-import CardData from './CardData';
 import SingleProduct from './SingleProduct';
-const Product = () => {
-  const dispatch=useDispatch();
 
+const Product = ({products}) => {
+  console.log(products );
+  const dispatch=useDispatch();
   const Handler=()=>{
-    Cardsdata.map((item)=>{
+    products.map((item)=>{
       if(item.qnty>0)
       {
        dispatch(Default_ADD_TO_CART(item));
@@ -18,12 +16,13 @@ const Product = () => {
   }
   useEffect(()=>{
     Handler();
-  },[Cardsdata])
+  },[products])
   
+
   return (
     <div className='product'>
-     {CardData.map((prod) => (
-        <SingleProduct prod={prod} key={prod.id}  />       
+     {products.map((prod) => (
+        <SingleProduct prod={prod} key={prod.id} />       
     ))}
     </div>
   )
