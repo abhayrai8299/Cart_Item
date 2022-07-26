@@ -11,7 +11,7 @@ import {
 import ProductPrice from "./ProductPrice";
 import { NavLink } from "react-router-dom";
 
-const CartItem = ({price,setPrice}) => {
+const CartItem = () => {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.cartreducer.carts);
@@ -93,7 +93,7 @@ const CartItem = ({price,setPrice}) => {
               );
             })}
           </div>
-          <ProductPrice data={data} quantity={quantity} prices={price} setPrice={setPrice} />
+          <ProductPrice data={data} quantity={quantity}/>
         </>
       ) : (
         <>

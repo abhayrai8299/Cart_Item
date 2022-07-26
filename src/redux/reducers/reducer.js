@@ -37,7 +37,7 @@ const initialState = {
       case "ADD_TO_ORDER":
          return {
           ...state,
-          orderHistory:[...state.orderHistory,{...action.payload,orderID:Math.floor(Math.random() * 899999999 + 10000000),orderDate:(new Date()).toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " ")}]
+          orderHistory:[...state.orderHistory,{...action.payload,orderID:Math.floor(Math.random() * 899999999 + 10000000),orderDate:(new Date()).toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " "),TotalAmount:action.price}]
          }
       default:
         return state;

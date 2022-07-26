@@ -142,7 +142,11 @@
 {
   position: relative;
   left: 200px;
-  top: -100px;
+  top: -50px;
+}
+.img-order
+{
+ width:150px;
 }
 .btn
 {
@@ -314,6 +318,11 @@
 }
 .grand-total{
   font-size:1.8rem;
+}
+.order-details
+{
+  position:relative;
+  top: 10px;
 }
 
 
