@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { ADD_TO_ORDER } from "../redux/actions/action";
 
-const ProductPrice = ({ data, quantity ,prices,setPrice}) => {
+const ProductPrice = ({ data, quantity}) => {
   const [totalprice, setTotalprice] = useState(0);
   const [loading, setLoading] = useState(false);
   const [disable, setDisable] = useState(false);
@@ -37,11 +37,6 @@ const ProductPrice = ({ data, quantity ,prices,setPrice}) => {
   useEffect(() => {
     totalAmount();
   }, [quantity]);
-
-  setPrice(totalprice)
-
-
-  console.log(prices);
   return (
     <>
     <div>

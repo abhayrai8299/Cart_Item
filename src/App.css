@@ -319,13 +319,11 @@
 .grand-total{
   font-size:1.8rem;
 }
-.order-details
+.order_heading
 {
-  position:relative;
-  top: 10px;
+ font-size: 1.5rem;
+ text-align: center;
 }
-
-
 
 @keyframes App-logo-spin {
   from {
