@@ -17,8 +17,8 @@ const OrderPage = () => {
         return Object.keys(item).map((it) => {
           if (typeof item[it] === "object") {
             return (
-              <div>
-                <span>{item[it].rname}</span>
+              <div className="prdouct-card">
+                <span className="item_heading">{item[it].rname}</span>
                 <br></br>
                 <img
                   className="img-order"
@@ -35,15 +35,14 @@ const OrderPage = () => {
           } else if (typeof item[it] !== "object" && flag === false) {
             flag = true;
             return (
-              <div className="order-details">
+              <div className="product-card">
                 <div>
-                  <span>OrderID: {item.orderID}</span>
-                </div>
-                <span>OrderDate: {item.orderDate}</span>
+                  <span>OrderID: {item.orderID}</span> || 
+                <span> OrderDate: {item.orderDate}</span>
                 <br />
-                <span>Total Amount To be Paid:{item.TotalAmount}</span>
-
+                <span>Total Amount To be Paid:Rs.{item.TotalAmount}</span>
                 <hr />
+                </div>
               </div>
             );
           }
