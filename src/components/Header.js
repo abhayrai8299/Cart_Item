@@ -57,6 +57,7 @@ const optimisedver=useCallback(debounce(handlesearchvalue),[])
             <FcShop />
             <NavLink className="cart" to="/">Foody Food</NavLink>
             <NavLink className="cart order_page" to="/orderpage">Order History</NavLink>
+            <NavLink className="cart admin_page" to="/admin">Admin</NavLink>
             <div className="input"> <input className="search_bar" onChange={optimisedver} searchvalue={searchvalue} ></input><span className="search-icon"><AiOutlineSearch /></span></div>
            
           </div>
