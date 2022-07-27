@@ -27,10 +27,10 @@ const Header = ({searchvalue,setsearchvalue
     setProducts(Cardsdata);
   };
   const searchProduct = (value) => {
-    let keyWord = value.toLowerCase()
-    if (keyWord) {
+    let val = value.toLowerCase()
+    if (val) {
       let filtered = Cardsdata.filter(product => {
-        return product.rname.toLowerCase().includes(keyWord);
+        return product.rname.toLowerCase().includes(val);
       });
       setProducts(filtered);
     } else {
