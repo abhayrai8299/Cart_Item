@@ -4,7 +4,6 @@ import {Default_ADD_TO_CART } from '../redux/actions/action';
 import SingleProduct from './SingleProduct';
 
 const Product = ({products}) => {
-  console.log(products );
   const dispatch=useDispatch();
   const Handler=()=>{
     products.map((item)=>{

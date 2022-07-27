@@ -8,11 +8,11 @@ import OrderPage from "./components/orderPage";
 import { useState } from "react";
 function App() {
   const [products, setProducts] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchvalue, setsearchvalue] = useState("");
   
   return (
     <>
-      <Header products={products} searchValue={searchValue} setSearchValue={setSearchValue} 
+      <Header products={products} searchvalue={searchvalue} setsearchvalue={setsearchvalue} 
       setProducts={setProducts}/>
       <Routes>
         <Route path="/" element={<Product products={products} />}  />

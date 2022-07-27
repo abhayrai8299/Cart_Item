@@ -5,13 +5,12 @@ import {useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {FcShop} from "react-icons/fc"
 import {AiOutlineSearch} from "react-icons/ai"
-import { debounce } from "lodash";
 import Cardsdata from "./CardData";
 
 
 
-const Header = ({products,searchValue,setSearchValue,setProducts}) => {
-  console.log(searchValue);
+const Header = ({searchvalue,setsearchvalue
+  ,setProducts}) => {
   const data = useSelector((state) => state.cartreducer.carts);
   
   const debounce=(func)=>{
@@ -28,24 +27,21 @@ const Header = ({products,searchValue,setSearchValue,setProducts}) => {
     setProducts(Cardsdata);
   };
   const searchProduct = (value) => {
-    console.log("Ssad",value);
-    let keyWord = value
+    let keyWord = value.toLowerCase()
     if (keyWord) {
       let filtered = Cardsdata.filter(product => {
-        return product.rname.includes(keyWord);
+        return product.rname.toLowerCase().includes(keyWord);
       });
-      console.log('sdasd', filtered);
       setProducts(filtered);
     } else {
-      setSearchValue("");
+      setsearchvalue
+      ("");
       handleGetProduct();
     }
   };
-  console.log(products)
-
  const handlesearchvalue =(event) => {
-  console.log(event.target.value)
- setSearchValue(event.target.value);
+ setsearchvalue
+ (event.target.value);
   searchProduct(event.target.value);
 };
 useEffect(() => {
@@ -61,7 +57,7 @@ const optimisedver=useCallback(debounce(handlesearchvalue),[])
             <FcShop />
             <NavLink className="cart" to="/">Foody Food</NavLink>
             <NavLink className="cart order_page" to="/orderpage">Order History</NavLink>
-            <div className="input"> <input className="search_bar" onChange={optimisedver} searchValue={searchValue} ></input><span className="search-icon"><AiOutlineSearch /></span></div>
+            <div className="input"> <input className="search_bar" onChange={optimisedver} searchvalue={searchvalue} ></input><span className="search-icon"><AiOutlineSearch /></span></div>
            
           </div>
           <NavLink className="cart" to="/cart">
