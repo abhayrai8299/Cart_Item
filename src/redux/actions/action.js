@@ -1,3 +1,9 @@
+export const ResetProduct = (products) => {
+  return {
+    type: "ResetProduct",
+    payload:products,
+  };
+};
 export const Default_ADD_TO_CART = (item) => {
   return {
     type: "Default_ADD_TO_CART",

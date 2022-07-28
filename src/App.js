@@ -9,7 +9,6 @@ import { useState } from "react";
 import Admin from "./components/Admin";
 import Edititem from "./components/Edititem";
 function App() {
-  const [products, setProducts] = useState([]);
   const [searchvalue, setsearchvalue] = useState("");
   const [Item, setItem] = useState([]);
   const [edititem, setEdititem] = useState({
@@ -24,13 +23,11 @@ function App() {
   return (
     <>
       <Header
-        products={products}
         searchvalue={searchvalue}
         setsearchvalue={setsearchvalue}
-        setProducts={setProducts}
       />
       <Routes>
-        <Route path="/" element={<Product products={products} />} />
+        <Route path="/" element={<Product  />} />
         <Route path="/cart" element={<CartItem />} />
         <Route path="/detail/:id" element={<Details />} />
         <Route path="/orderpage" element={<OrderPage />} />

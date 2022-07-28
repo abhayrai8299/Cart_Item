@@ -1,15 +1,25 @@
+import Cardsdata from "../../components/CardData";
+
 const initialState = {
     carts: [
     ],
     orderHistory:[
 
     ],
+    productList:Cardsdata,
    sort:'desc',
   };
   
   export const cartreducer = (state = initialState, action) => {
     switch (action.type) {
-
+      
+      case "ResetProduct":
+        console.log(Cardsdata)
+         return {
+          ...state,
+          productList:[...state.productList,{...Cardsdata}],
+         }
+        
       case "Default_ADD_TO_CART":
         const check=state.carts.find((data)=>data.id===action.payload.id?true:false);
         return {

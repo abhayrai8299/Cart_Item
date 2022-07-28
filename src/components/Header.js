@@ -1,17 +1,14 @@
-import React,{useCallback, useEffect} from "react";
+import React,{useCallback,} from "react";
 import { Badge } from "react-bootstrap";
 import { TbShoppingCart } from "react-icons/tb";
 import {useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {FcShop} from "react-icons/fc"
 import {AiOutlineSearch} from "react-icons/ai"
-import Cardsdata from "./CardData";
 
-
-
-const Header = ({searchvalue,setsearchvalue
-  ,setProducts}) => {
+const Header = ({searchvalue,setsearchvalue}) => {
   const data = useSelector((state) => state.cartreducer.carts);
+  const products = useSelector((state) => state.cartreducer.productList);
   
   const debounce=(func)=>{
     let timer;
@@ -22,21 +19,17 @@ const Header = ({searchvalue,setsearchvalue
         },2000);
     }
   }
-
-  const handleGetProduct = () => {
-    setProducts(Cardsdata);
-  };
   const searchProduct = (value) => {
     let val = value.toLowerCase()
     if (val) {
-      let filtered = Cardsdata.filter(product => {
+      let filtered = products.filter(product => {
         return product.rname.toLowerCase().includes(val);
       });
-      setProducts(filtered);
+      // setProducts(filtered);
     } else {
       setsearchvalue
       ("");
-      handleGetProduct();
+      // handleGetProduct();
     }
   };
  const handlesearchvalue =(event) => {
@@ -44,9 +37,7 @@ const Header = ({searchvalue,setsearchvalue
  (event.target.value);
   searchProduct(event.target.value);
 };
-useEffect(() => {
-  handleGetProduct();
-}, []);
+
 
 const optimisedver=useCallback(debounce(handlesearchvalue),[])
   return (

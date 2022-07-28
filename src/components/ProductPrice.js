@@ -4,7 +4,8 @@ import { ToastContainer, toast } from "react-toastify";
 import { Circles } from "react-loader-spinner";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
-import { ADD_TO_ORDER } from "../redux/actions/action";
+import { ADD_TO_ORDER,ResetProduct } from "../redux/actions/action";
+import CardData from "../components/CardData";
 
 const ProductPrice = ({ data, quantity}) => {
   const [totalprice, setTotalprice] = useState(0);
@@ -12,6 +13,7 @@ const ProductPrice = ({ data, quantity}) => {
   const [disable, setDisable] = useState(false);
    
   const cartItem= useSelector((state) => state.cartreducer.carts);
+  const products= useSelector((state) => state.cartreducer.productList);
   const dispatch=useDispatch();
 
   const totalAmount = () => {
@@ -32,7 +34,11 @@ const ProductPrice = ({ data, quantity}) => {
       history("/orderpage");
       setLoading(false)
     setDisable(false);
-    },500)
+    },200)
+    console.log(CardData)
+    console.log(products);
+    dispatch(ResetProduct(products))
+    console.log(products);
   }
   useEffect(() => {
     totalAmount();

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Cardsdata from "./CardData";
 import { ToastContainer,toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -15,11 +14,12 @@ const CartItem = () => {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.cartreducer.carts);
+  const products = useSelector((state) => state.cartreducer.productList);
   const [quantity, setquantity] = useState(0);
 
   const addHandler = (item) => {
     toast(`${item.rname} Item Quantity Increased Successfully`);
-    Cardsdata.map((data) => {
+    products.map((data) => {
       if (data.id === item.id) {
         data.qnty = data.qnty + 1;
       }
@@ -28,9 +28,9 @@ const CartItem = () => {
     dispatch(ADD_TO_CART(item));
   };
   const delHandler = (id) => {
-    const item = Cardsdata.find((data) => data.id === id);
+    const item = products.find((data) => data.id === id);
     toast(`${item.rname} Removed Successfully`);
-    Cardsdata.map((data) => {
+    products.map((data) => {
       if (data.id === id) {
         data.qnty = data.qnty - 1;
       }
@@ -38,8 +38,8 @@ const CartItem = () => {
     dispatch(REMOVE_FROM_CART(id));
   };
   const removeHandler = (item) => {
-    toast(`${item.rname} Item Qunatity Decreased Successfully`);
-    Cardsdata.map((data) => {
+    toast(`${item.rname} Item Quantity Decreased Successfully`);
+    products.map((data) => {
       if (data.id === item.id) {
         data.qnty = data.qnty - 1;
       }

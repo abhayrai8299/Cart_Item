@@ -1,9 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Cardsdata from "./CardData";
 import "./Modal.css";
 
 const Edititem = ({ edititem, setEdititem }) => {
+  const products = useSelector((state) => state.cartreducer.productList);
   const navigate = useNavigate();
   const handlechange = (e) => {
     const name = e.target.name;
@@ -15,7 +16,7 @@ const Edititem = ({ edititem, setEdititem }) => {
   };
   const onProceed = () => {
     console.log(edititem);
-    Cardsdata.map((it) =>
+    products.map((it) =>
       it.id === edititem.id
         ? ((it.rname = edititem.food_name),
           (it.address = edititem.food_type),

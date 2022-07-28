@@ -1,9 +1,10 @@
 import React, { useEffect} from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {Default_ADD_TO_CART } from '../redux/actions/action';
 import SingleProduct from './SingleProduct';
 
-const Product = ({products}) => {
+const Product = () => {
+   const products=useSelector((state)=>state.cartreducer.productList)
   const dispatch=useDispatch();
   const Handler=()=>{
     products.map((item)=>{
