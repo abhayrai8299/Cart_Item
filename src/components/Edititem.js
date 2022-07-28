@@ -1,29 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Cardsdata from "./CardData";
 import "./Modal.css";
-const Edititem = ({Item, setItem}) => {
-    const [edititem, setEdititem] = useState({
-        food_name: "",
-        food_type: "",
-        price: "",
-        rating: "",
-        quantity: "",
-      });
-    console.log(Item);
-  console.log({...edititem,food_type:Item.rname});
-  setEdititem({
-    ...edititem,
-    food_name:Item.rname,
-    // food_type: Item.address,
-    // price: Item.price,
-    // quantity: Item.qnty,
-    // rating: Item.rating, 
-});
 
+const Edititem = ({ edititem, setEdititem }) => {
+  const navigate = useNavigate();
   const handlechange = (e) => {
-    const name=e.target.name;
-    const value=e.target.value;
+    const name = e.target.name;
+    const value = e.target.value;
+    setEdititem({ ...edititem, [name]: value });
   };
-
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+  const onProceed = () => {
+    console.log(edititem);
+    Cardsdata.map((it) =>
+      it.id === edititem.id
+        ? ((it.rname = edititem.food_name),
+          (it.address = edititem.food_type),
+          (it.price = edititem.price),
+          (it.qnty = edititem.quantity),
+          (it.rating = edititem.rating))
+        : it
+    );
+    navigate("/admin");
+  };
+  const onCancel = () => {
+    navigate("/admin");
+  };
+  const onHome=()=>{
+    navigate("/");
+  }
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -31,13 +39,14 @@ const Edititem = ({Item, setItem}) => {
         <div className="title">
           <h2>Please Edit the Item</h2>
           <div className="body">
-            <form>
+            <form onSubmit={submitHandler}>
               Food Name
               <input
                 type="text"
                 value={edititem.food_name}
                 onChange={handlechange}
                 name="food_name"
+                id="food_name"
               />
               <br />
               Food Type
@@ -50,7 +59,7 @@ const Edititem = ({Item, setItem}) => {
               <br />
               Price{" "}
               <input
-                type="text"
+                type="number"
                 value={edititem.price}
                 onChange={handlechange}
                 name="price"
@@ -66,7 +75,7 @@ const Edititem = ({Item, setItem}) => {
               <br />
               Qunatity
               <input
-                type="text"
+                type="number"
                 value={edititem.quantity}
                 onChange={handlechange}
                 name="quantity"
@@ -75,7 +84,9 @@ const Edititem = ({Item, setItem}) => {
             </form>
           </div>
           <div className="footer">
-            <button>Proceed</button>
+            <button onClick={onProceed}>Proceed</button>
+            <button onClick={onCancel}>Cancel</button>
+            <button onClick={onHome}>Home</button>
           </div>
         </div>
       </div>

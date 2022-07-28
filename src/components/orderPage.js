@@ -4,12 +4,10 @@ import { useSelector } from "react-redux";
 const OrderPage = () => {
   const data = useSelector((state) => state.cartreducer.orderHistory);
   const sortType=useSelector((state)=>state.cartreducer.sort)
-  console.log(sortType);
   const sortedData=data.sort((a,b)=>{
     const reversed=(sortType==='desc')?-1:1;
     return reversed*a.orderDate.localeCompare(b.orderDate);
   });
-  console.log(sortedData.length);
   return (
     <div>
       {sortedData.length?<> <h3 className="order_heading">My Orders</h3>

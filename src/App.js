@@ -12,13 +12,14 @@ function App() {
   const [products, setProducts] = useState([]);
   const [searchvalue, setsearchvalue] = useState("");
   const [Item, setItem] = useState([]);
-  // const [edititem, setEdititem] = useState({
-  //   food_name: "",
-  //   food_type: "",
-  //   price: "",
-  //   rating: "",
-  //   quantity: "",
-  // });
+  const [edititem, setEdititem] = useState({
+    id: "",
+    food_name: "",
+    food_type: "",
+    price: "",
+    rating: "",
+    quantity: "",
+  });
 
   return (
     <>
@@ -39,21 +40,14 @@ function App() {
             <Admin
               Item={Item}
               setItem={setItem}
-              // edititem={edititem}
-              // setEdititem={setEdititem}
+              edititem={edititem}
+              setEdititem={setEdititem}
             />
           }
         />
         <Route
           path="/edit"
-          element={
-            <Edititem
-              Item={Item}
-              setItem={setItem}
-              // edititem={edititem}
-              // setEdititem={setEdititem}
-            />
-          }
+          element={<Edititem edititem={edititem} setEdititem={setEdititem} />}
         />
       </Routes>
     </>
