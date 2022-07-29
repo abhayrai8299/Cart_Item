@@ -8,8 +8,11 @@ import OrderPage from "./components/orderPage";
 import { useState } from "react";
 import Admin from "./components/Admin";
 import Edititem from "./components/Edititem";
+import { useSelector } from "react-redux";
 function App() {
+  const prods= useSelector((state) => state.cartreducer.productList);
   const [searchvalue, setsearchvalue] = useState("");
+  const [productItem,setProductItem]=useState(prods)
   const [Item, setItem] = useState([]);
   const [edititem, setEdititem] = useState({
     id: "",
@@ -25,9 +28,11 @@ function App() {
       <Header
         searchvalue={searchvalue}
         setsearchvalue={setsearchvalue}
+        setProductItem={setProductItem}
+
       />
       <Routes>
-        <Route path="/" element={<Product  />} />
+        <Route path="/" element={<Product productItem={productItem}  />} />
         <Route path="/cart" element={<CartItem />} />
         <Route path="/detail/:id" element={<Details />} />
         <Route path="/orderpage" element={<OrderPage />} />

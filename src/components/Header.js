@@ -6,9 +6,9 @@ import { NavLink } from "react-router-dom";
 import {FcShop} from "react-icons/fc"
 import {AiOutlineSearch} from "react-icons/ai"
 
-const Header = ({searchvalue,setsearchvalue}) => {
+const Header = ({searchvalue,setsearchvalue,setProductItem}) => {
   const data = useSelector((state) => state.cartreducer.carts);
-  const products = useSelector((state) => state.cartreducer.productList);
+  let prods = useSelector((state) => state.cartreducer.productList);
   
   const debounce=(func)=>{
     let timer;
@@ -22,14 +22,14 @@ const Header = ({searchvalue,setsearchvalue}) => {
   const searchProduct = (value) => {
     let val = value.toLowerCase()
     if (val) {
-      let filtered = products.filter(product => {
+      let filtered = prods.filter(product => {
         return product.rname.toLowerCase().includes(val);
       });
-      // setProducts(filtered);
+      setProductItem(filtered);
     } else {
       setsearchvalue
       ("");
-      // handleGetProduct();
+      setProductItem(prods)
     }
   };
  const handlesearchvalue =(event) => {

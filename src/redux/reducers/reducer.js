@@ -6,7 +6,7 @@ const initialState = {
     orderHistory:[
 
     ],
-    productList:Cardsdata,
+    productList:JSON.parse(JSON.stringify(Cardsdata)),
    sort:'desc',
   };
   
@@ -17,7 +17,8 @@ const initialState = {
         console.log(Cardsdata)
          return {
           ...state,
-          productList:[...state.productList,{...Cardsdata}],
+           carts:[],
+          productList:JSON.parse(JSON.stringify(Cardsdata)),
          }
         
       case "Default_ADD_TO_CART":

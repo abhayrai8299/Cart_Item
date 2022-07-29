@@ -3,12 +3,12 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 const DetailPage = () => {
-  const products= useSelector((state) => state.cartreducer.productList);
+  const prods= useSelector((state) => state.cartreducer.productList);
   const [data, setData] = useState([]);
   const { id } = useParams();
 
   const cardData = () => {
-    let data = products.filter((item) => {
+    let data = prods.filter((item) => {
       return item.id == id;
     });
     setData(data);

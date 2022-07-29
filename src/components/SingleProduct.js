@@ -8,7 +8,7 @@ import {
   REMOVE_FROM_CART,
 } from "../redux/actions/action";
 import { NavLink } from "react-router-dom";
-
+import Cardsdata from './CardData';
 const SingleProduct = ({ prod,search}) => {
   
   const cartitem = useSelector((state) => state.cartreducer.carts);
@@ -23,6 +23,7 @@ const SingleProduct = ({ prod,search}) => {
       }
     });
     dispatch(ADD_TO_CART(item));
+   
   };
 
   const addHandler = (item) => {
@@ -33,12 +34,14 @@ const SingleProduct = ({ prod,search}) => {
       }
     });
     dispatch(ADD_TO_CART(item));
+    console.log(Cardsdata)
   };
 
   const removefromcartHandler = (id) => {
     const item = cartitem.find((data) => data.id === id);
     toast(`${item.rname} Removed Successfully`);
     dispatch(REMOVE_FROM_CART(id));
+    
   };
   const adjustQntyHandler = (item) => {
     toast(`${item.rname} Removed Successfully`);

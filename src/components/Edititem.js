@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Modal.css";
 
 const Edititem = ({ edititem, setEdititem }) => {
-  const products = useSelector((state) => state.cartreducer.productList);
+  const prods = useSelector((state) => state.cartreducer.productList);
   const navigate = useNavigate();
   const handlechange = (e) => {
     const name = e.target.name;
@@ -16,7 +16,7 @@ const Edititem = ({ edititem, setEdititem }) => {
   };
   const onProceed = () => {
     console.log(edititem);
-    products.map((it) =>
+    prods.map((it) =>
       it.id === edititem.id
         ? ((it.rname = edititem.food_name),
           (it.address = edititem.food_type),

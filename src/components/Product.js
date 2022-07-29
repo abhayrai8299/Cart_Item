@@ -1,27 +1,29 @@
 import React, { useEffect} from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import {Default_ADD_TO_CART } from '../redux/actions/action';
+// import Cardsdata from './CardData';
 import SingleProduct from './SingleProduct';
 
-const Product = () => {
-   const products=useSelector((state)=>state.cartreducer.productList)
+const Product = ({productItem}) => {
   const dispatch=useDispatch();
   const Handler=()=>{
-    products.map((item)=>{
+    productItem.map((item)=>{
       if(item.qnty>0)
       {
        dispatch(Default_ADD_TO_CART(item));
+      //  alert("sdsa")
+      //  console.log(Cardsdata)
       }
     })
   }
   useEffect(()=>{
     Handler();
-  },[products])
+  },[productItem])
   
 
   return (
     <div className='product'>
-     {products.map((prod) => (
+     {productItem.map((prod) => (
         <SingleProduct prod={prod} key={prod.id} />       
     ))}
     </div>

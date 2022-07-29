@@ -14,12 +14,12 @@ const CartItem = () => {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.cartreducer.carts);
-  const products = useSelector((state) => state.cartreducer.productList);
+  const prods = useSelector((state) => state.cartreducer.productList);
   const [quantity, setquantity] = useState(0);
-
+  console.log("sdf",prods,data)
   const addHandler = (item) => {
     toast(`${item.rname} Item Quantity Increased Successfully`);
-    products.map((data) => {
+    prods.map((data) => {
       if (data.id === item.id) {
         data.qnty = data.qnty + 1;
       }
@@ -28,9 +28,9 @@ const CartItem = () => {
     dispatch(ADD_TO_CART(item));
   };
   const delHandler = (id) => {
-    const item = products.find((data) => data.id === id);
+    const item = prods.find((data) => data.id === id);
     toast(`${item.rname} Removed Successfully`);
-    products.map((data) => {
+    prods.map((data) => {
       if (data.id === id) {
         data.qnty = data.qnty - 1;
       }
@@ -39,7 +39,7 @@ const CartItem = () => {
   };
   const removeHandler = (item) => {
     toast(`${item.rname} Item Quantity Decreased Successfully`);
-    products.map((data) => {
+    prods.map((data) => {
       if (data.id === item.id) {
         data.qnty = data.qnty - 1;
       }
