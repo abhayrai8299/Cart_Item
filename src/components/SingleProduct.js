@@ -8,16 +8,14 @@ import {
   REMOVE_FROM_CART,
 } from "../redux/actions/action";
 import { NavLink } from "react-router-dom";
-import Cardsdata from './CardData';
-const SingleProduct = ({ prod,search}) => {
+const SingleProduct = ({prod,productItem}) => {
   
   const cartitem = useSelector((state) => state.cartreducer.carts);
-  const products= useSelector((state) => state.cartreducer.productList);
   const dispatch = useDispatch();
 
   const addnadjustHandler = (item) => {
     toast(`${item.rname} Added To Cart`);
-    products.map((item) => {
+    productItem.map((item) => {
       if (item.id === prod.id) {
         prod.qnty = prod.qnty + 1;
       }
@@ -28,13 +26,12 @@ const SingleProduct = ({ prod,search}) => {
 
   const addHandler = (item) => {
     toast(`${item.rname} Added To Cart`);
-    products.map((item) => {
+    productItem.map((item) => {
       if (item.id === prod.id) {
         prod.qnty = 1;
       }
     });
     dispatch(ADD_TO_CART(item));
-    console.log(Cardsdata)
   };
 
   const removefromcartHandler = (id) => {
@@ -45,7 +42,7 @@ const SingleProduct = ({ prod,search}) => {
   };
   const adjustQntyHandler = (item) => {
     toast(`${item.rname} Removed Successfully`);
-    products.map((item) => {
+    productItem.map((item) => {
       if (item.id === prod.id) {
         prod.qnty = prod.qnty - 1;
       }

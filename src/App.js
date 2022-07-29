@@ -22,7 +22,6 @@ function App() {
     rating: "",
     quantity: "",
   });
-
   return (
     <>
       <Header
@@ -32,9 +31,9 @@ function App() {
 
       />
       <Routes>
-        <Route path="/" element={<Product productItem={productItem}  />} />
-        <Route path="/cart" element={<CartItem />} />
-        <Route path="/detail/:id" element={<Details />} />
+        <Route path="/" element={<Product productItem={productItem} />} />
+        <Route path="/cart" element={<CartItem  setProductItem={setProductItem}  />} />
+        <Route path="/detail/:id" element={<Details  />} />
         <Route path="/orderpage" element={<OrderPage />} />
         <Route
           path="/admin"
@@ -44,12 +43,14 @@ function App() {
               setItem={setItem}
               edititem={edititem}
               setEdititem={setEdititem}
+              productItem={productItem} 
             />
           }
         />
         <Route
           path="/edit"
-          element={<Edititem edititem={edititem} setEdititem={setEdititem} />}
+          element={<Edititem edititem={edititem} setEdititem={setEdititem}
+          productItem={productItem} />}
         />
       </Routes>
     </>

@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-const DetailPage = () => {
-  const prods= useSelector((state) => state.cartreducer.productList);
+const DetailPage = (productItem,setProductItem) => {
+
   const [data, setData] = useState([]);
   const { id } = useParams();
 
   const cardData = () => {
-    let data = prods.filter((item) => {
+    let data = productItem.filter((item) => {
       return item.id == id;
     });
     setData(data);

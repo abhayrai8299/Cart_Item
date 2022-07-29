@@ -17,7 +17,7 @@ const initialState = {
         console.log(Cardsdata)
          return {
           ...state,
-           carts:[],
+          carts:[],
           productList:JSON.parse(JSON.stringify(Cardsdata)),
          }
         

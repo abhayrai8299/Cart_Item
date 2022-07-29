@@ -10,13 +10,12 @@ import {
 import ProductPrice from "./ProductPrice";
 import { NavLink } from "react-router-dom";
 
-const CartItem = () => {
+const CartItem = ({setProductItem}) => {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.cartreducer.carts);
   const prods = useSelector((state) => state.cartreducer.productList);
   const [quantity, setquantity] = useState(0);
-  console.log("sdf",prods,data)
   const addHandler = (item) => {
     toast(`${item.rname} Item Quantity Increased Successfully`);
     prods.map((data) => {
@@ -93,7 +92,7 @@ const CartItem = () => {
               );
             })}
           </div>
-          <ProductPrice data={data} quantity={quantity}/>
+          <ProductPrice data={data} quantity={quantity} setProductItem={setProductItem}/>
         </>
       ) : (
         <>

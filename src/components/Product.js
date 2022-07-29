@@ -5,14 +5,14 @@ import {Default_ADD_TO_CART } from '../redux/actions/action';
 import SingleProduct from './SingleProduct';
 
 const Product = ({productItem}) => {
+
+
   const dispatch=useDispatch();
   const Handler=()=>{
     productItem.map((item)=>{
       if(item.qnty>0)
       {
        dispatch(Default_ADD_TO_CART(item));
-      //  alert("sdsa")
-      //  console.log(Cardsdata)
       }
     })
   }
@@ -24,7 +24,7 @@ const Product = ({productItem}) => {
   return (
     <div className='product'>
      {productItem.map((prod) => (
-        <SingleProduct prod={prod} key={prod.id} />       
+        <SingleProduct prod={prod} key={prod.id} productItem={productItem} />       
     ))}
     </div>
   )

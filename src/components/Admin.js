@@ -1,11 +1,9 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { useSelector } from "react-redux";
 
 import { NavLink } from "react-router-dom";
 
-const Admin = ({ edititem, setEdititem, setItem }) => {
-  const prods = useSelector((state) => state.cartreducer.productList);
+const Admin = ({ edititem, setEdititem, setItem,productItem}) => {
   const editHandle = (item) => {
     setItem(item);
     setEdititem({
@@ -31,7 +29,7 @@ const Admin = ({ edititem, setEdititem, setItem }) => {
           <th>Quantity</th>
           <th>Edit</th>
         </tr>
-        {prods.map((item) => {
+        {productItem.map((item) => {
           return (
             <>
               <tr>

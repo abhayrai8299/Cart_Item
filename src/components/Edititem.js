@@ -1,10 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./Modal.css";
 
-const Edititem = ({ edititem, setEdititem }) => {
-  const prods = useSelector((state) => state.cartreducer.productList);
+const Edititem = ({ edititem, setEdititem,productItem}) => {
   const navigate = useNavigate();
   const handlechange = (e) => {
     const name = e.target.name;
@@ -15,8 +13,7 @@ const Edititem = ({ edititem, setEdititem }) => {
     e.preventDefault();
   };
   const onProceed = () => {
-    console.log(edititem);
-    prods.map((it) =>
+    productItem.map((it) =>
       it.id === edititem.id
         ? ((it.rname = edititem.food_name),
           (it.address = edititem.food_type),
