@@ -1,7 +1,6 @@
 import React, { useEffect} from 'react'
 import { useDispatch} from 'react-redux';
 import {Default_ADD_TO_CART } from '../redux/actions/action';
-// import Cardsdata from './CardData';
 import SingleProduct from './SingleProduct';
 
 const Product = ({productItem}) => {
